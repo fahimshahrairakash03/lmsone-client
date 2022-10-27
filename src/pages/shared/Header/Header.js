@@ -4,13 +4,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./Header.css";
 import logo from "../../../assets/logo.png";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider.js";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   return (
     <Navbar collapseOnSelect expand="lg" bg="lg" variant="lg">
       <Container>
@@ -20,7 +20,7 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto align-center">
             <Link className="me-2" to="/">
               Home
             </Link>
@@ -39,7 +39,18 @@ const Header = () => {
             <Link className="me-2" to="/register">
               Register
             </Link>
-            <p>{user.displayName}</p>
+            <p>
+              {user?.uid ? (
+                <>
+                  <span>{user?.displayName}</span>
+                  <Button onClick={logout}>Logout</Button>
+                </>
+              ) : (
+                <Link className="me-2" to="/login">
+                  Login
+                </Link>
+              )}
+            </p>
           </Nav>
         </Navbar.Collapse>
       </Container>
