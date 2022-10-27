@@ -16,7 +16,7 @@ const CourseList = () => {
       <h1>Courses: {courses.length}</h1>
       {courses.map((course) => (
         <p key={course.id} course={course}>
-          <Link>{course.name}</Link>
+          <Link to={`/course/${course.id}`}>{course.name}</Link>
         </p>
       ))}
     </div>
