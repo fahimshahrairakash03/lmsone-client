@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
   const { emailSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +26,7 @@ const Login = () => {
         console.log(user);
         form.reset();
         setError("");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);

@@ -22,7 +22,12 @@ const CourseDetails = () => {
           <Card.Title>{course.title}</Card.Title>
           <Card.Text>{course.details}</Card.Text>
         </Card.Body>
-        <Card.Footer className="text-muted">Download</Card.Footer>
+        <Card.Footer className="text-muted">
+          <Link to="/premium">
+            {" "}
+            <Button variant="warning">Premium Access</Button>{" "}
+          </Link>
+        </Card.Footer>
       </Card>
     </div>
   );
