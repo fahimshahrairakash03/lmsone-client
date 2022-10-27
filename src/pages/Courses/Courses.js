@@ -1,17 +1,18 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import CourseIntro from "../shared/CourseIntro/CourseIntro";
 import CourseList from "../shared/CourseList/CourseList";
 
 import Card from "react-bootstrap/Card";
+import CourseCard from "../CourseCard/CourseCard";
 
 const Courses = () => {
-  const all = useLoaderData();
+  // const all = useLoaderData();
 
-  const { title, image_url, details } = all;
+  // const { _id, title, image_url, details } = all;
 
-  console.log(all);
+  // console.log(all);
   return (
     <Container>
       <Row>
@@ -20,8 +21,9 @@ const Courses = () => {
         </Col>
         <Col lg="9">
           <div>
-            <h2>Total Courses: {all.length}</h2>
-            {all.map((course) => (
+            {/* <CourseCard></CourseCard> */}
+            {/* <h2>Total Courses: {all.length}</h2> */}
+            {/* {all.map((course) => (
               <p key={course._id} course={course}>
                 <Card className="text-center">
                   <Card.Header>Featured</Card.Header>
@@ -33,12 +35,14 @@ const Courses = () => {
                   <Card.Body>
                     <Card.Title>{course.title}</Card.Title>
                     <Card.Text>{course.details}</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Link to={`/selected/${_id}`}>
+                      <Button variant="primary">Go somewhere</Button>
+                    </Link>
                   </Card.Body>
-                  <Card.Footer className="text-muted">2 days ago</Card.Footer>
+                  <Card.Footer className="text-muted">Download</Card.Footer>
                 </Card>
               </p>
-            ))}
+            ))} */}
           </div>
         </Col>
       </Row>

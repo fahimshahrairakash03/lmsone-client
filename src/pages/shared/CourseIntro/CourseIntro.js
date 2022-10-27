@@ -1,12 +1,17 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Col, Container } from "react-bootstrap";
+import { useLoaderData, useRouteLoaderData } from "react-router-dom";
+import CourseCard from "../../CourseCard/CourseCard";
+import CourseList from "../CourseList/CourseList";
 
 const CourseIntro = () => {
-  //   const allcourses = useLoaderData();
-  //   console.log(allcourses);
+  const allcourse = useLoaderData();
+  console.log(allcourse);
   return (
     <div>
-      <h1>Course Intro: {} </h1>
+      {allcourse.map((course) => (
+        <CourseCard key={course._id} course={course}></CourseCard>
+      ))}
     </div>
   );
 };
