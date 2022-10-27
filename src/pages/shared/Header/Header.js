@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -8,49 +8,70 @@ import { Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider.js";
+import DarkModeToggle from "react-dark-mode-toggle";
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
+  const [isDarkMode, setIsDarkMode] = useState(() => false);
   return (
     <Navbar collapseOnSelect expand="lg" bg="lg" variant="lg">
-      <Container>
-        <Image className="logo-pic me-2" src={logo}></Image>
-        <Navbar.Brand className="logo fw-bold me-auto" href="#home">
+      <Container className="align-items-center">
+        <Image className="logo-pic mt-0 me-2" src={logo}></Image>
+        <Navbar.Brand className="logo  my-auto  fw-bold me-auto" href="#home">
+          {" "}
           Lms<span>One</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto align-center">
-            <Link className="me-2" to="/">
+          <Nav className="ms-auto  align-center">
+            <Link className="nav-menu mt-3 me-2" to="/">
               Home
             </Link>
-            <Link className="me-2" to="/courses">
+            <Link className="nav-menu mt-3 me-2" to="/courses">
               Courses
             </Link>
-            <Link className="me-2" to="/faq">
+            <Link className="nav-menu mt-3 me-2" to="/faq">
               Faq
             </Link>
-            <Link className="me-2" to="/blog">
+            <Link className="nav-menu mt-3 me-2" to="/blog">
               Blog
             </Link>
-            <Link className="me-2" to="/login">
-              Login
-            </Link>
-            <Link className="me-2" to="/register">
+            <Link className="nav-menu mt-3 me-2" to="/register">
               Register
             </Link>
             <p>
               {user?.uid ? (
                 <>
-                  <span>{user?.displayName}</span>
-                  <Button onClick={logout}>Logout</Button>
+                  <span className="me-2 ">{user?.displayName}</span>
+
+                  <Button className="me-2 mt-2" onClick={logout}>
+                    Logout
+                  </Button>
                 </>
               ) : (
-                <Link className="me-2" to="/login">
+                <Link className="nav-menu mt-3 me-2" to="/login">
                   Login
                 </Link>
               )}
             </p>
+            {user?.photoURL ? (
+              <Image
+                className="mt-3 me-2"
+                style={{ height: "30px" }}
+                roundedCircle
+                src={user.photoURL}
+              ></Image>
+            ) : (
+              <FaUserAlt className="mt-3 me-2"></FaUserAlt>
+            )}
+
+            <DarkModeToggle
+              className="mt-3"
+              onChange={setIsDarkMode}
+              checked={isDarkMode}
+              size={50}
+            />
           </Nav>
         </Navbar.Collapse>
       </Container>

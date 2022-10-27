@@ -8,7 +8,8 @@ import { AuthContext } from "../../context/AuthProvider";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 const Register = () => {
-  const { user, userCreate, googleSignIn } = useContext(AuthContext);
+  const { user, userCreate, googleSignIn, updateUserProfile } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const googleProvider = new GoogleAuthProvider();
   const gitProvider = new GithubAuthProvider();
@@ -27,6 +28,7 @@ const Register = () => {
         console.log(user);
         form.reset();
         setError("");
+        handleUpdateProfile(name, photo);
       })
       .catch((error) => {
         console.log(error);
@@ -45,6 +47,16 @@ const Register = () => {
         console.log(error);
         setError(error);
       });
+  };
+
+  const handleUpdateProfile = (name, photo) => {
+    const profile = {
+      displayName: name,
+      photoURL: photo,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.log(error));
   };
 
   const handlegitSignIn = () => {

@@ -4,9 +4,11 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import { useState } from "react";
@@ -22,6 +24,10 @@ const AuthProvider = ({ children }) => {
   const userCreate = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
   };
 
   const emailSignIn = (email, password) => {
@@ -53,6 +59,7 @@ const AuthProvider = ({ children }) => {
   const authinfo = {
     user,
     loading,
+    updateUserProfile,
     userCreate,
     emailSignIn,
     googleSignIn,
