@@ -6,8 +6,11 @@ import "./Header.css";
 import logo from "../../../assets/logo.png";
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthProvider.js";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
   return (
     <Navbar collapseOnSelect expand="lg" bg="lg" variant="lg">
       <Container>
@@ -30,6 +33,13 @@ const Header = () => {
             <Link className="me-2" to="/blog">
               Blog
             </Link>
+            <Link className="me-2" to="/login">
+              Login
+            </Link>
+            <Link className="me-2" to="/register">
+              Register
+            </Link>
+            <p>{user.displayName}</p>
           </Nav>
         </Navbar.Collapse>
       </Container>
