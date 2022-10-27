@@ -1,4 +1,6 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+import CourseSummary from "../CourseSummary/CourseSummary";
 
 const Home = () => {
   return (
