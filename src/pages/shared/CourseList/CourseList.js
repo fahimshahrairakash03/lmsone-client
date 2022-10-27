@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/course-list")
+    fetch("https://lmsone-server.vercel.app/course-list")
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);

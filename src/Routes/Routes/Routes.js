@@ -19,7 +19,7 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/allcourse"),
+        loader: () => fetch("https://lmsone-server.vercel.app/allcourse"),
       },
       {
         path: "/courses",
@@ -37,13 +37,13 @@ export const routes = createBrowserRouter([
         path: "/course/:id",
         element: <CourseIntro></CourseIntro>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(`https://lmsone-server.vercel.app/course/${params.id}`),
       },
       {
         path: "/selected/:id",
         element: <CourseDetails></CourseDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/selected/${params.id}`),
+          fetch(`https://lmsone-server.vercel.app/${params.id}`),
       },
       {
         path: "/login",
