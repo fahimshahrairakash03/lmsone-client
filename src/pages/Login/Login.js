@@ -36,7 +36,7 @@ const Login = () => {
 
   return (
     <div>
-      <h1 className="text-primary text-center">Please Login!</h1>
+      <h1 className="text-primary text-center fw-bold mt-5">Please Login!</h1>
       <Form onSubmit={handleSubmit} className="mx-auto w-50 ">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -52,10 +52,10 @@ const Login = () => {
           />
         </Form.Group>
         <p className="text-danger">{error}</p>
-        <Button variant="primary" type="submit">
+        <Button className="mx-auto" variant="primary" type="submit">
           Login
         </Button>
-        <p>
+        <p className="mt-2 fw-semibold">
           New User? <Link to="/register">Register</Link>
         </p>
       </Form>

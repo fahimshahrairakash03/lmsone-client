@@ -8,7 +8,7 @@ const CourseIntro = () => {
   const allcourse = useLoaderData();
   console.log(allcourse);
   return (
-    <div>
+    <div className="my-5">
       {allcourse.map((course) => (
         <CourseCard key={course._id} course={course}></CourseCard>
       ))}

@@ -13,8 +13,7 @@ const CourseList = () => {
   }, []);
 
   return (
-    <div>
-      <h1 className="fw-bold text-center my-4">Courses: {courses.length}</h1>
+    <div className="my-5">
       {courses.map((course) => (
         <p key={course.id} course={course}>
           <Link to={`/course/${course.id}`}>

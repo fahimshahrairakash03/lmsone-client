@@ -7,8 +7,8 @@ const Home = () => {
   const allcourse = useLoaderData();
   console.log(allcourse);
   return (
-    <div>
-      <h1 className="text-center">Explore The Courses</h1>
+    <div className="mt-5">
+      <h1 className="text-center my-5 fw-bold">Explore The Courses</h1>
 
       <div>
         {allcourse.map((course) => (

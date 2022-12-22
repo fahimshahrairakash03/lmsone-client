@@ -8,7 +8,6 @@ const CourseCard = ({ course }) => {
   return (
     <Container>
       <Row>
-        <Col lg="3"></Col>
         <Col lg="9">
           <Card className="text-center">
             <Card.Header>Featured</Card.Header>

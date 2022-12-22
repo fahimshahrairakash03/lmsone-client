@@ -25,45 +25,45 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto  align-center">
-            <Link className="nav-menu mt-3 me-2" to="/">
+            <Link className="nav-menu mt-3 me-4" to="/">
               Home
             </Link>
-            <Link className="nav-menu mt-3 me-2" to="/courses">
+            <Link className="nav-menu mt-3 me-4" to="/courses">
               Courses
             </Link>
-            <Link className="nav-menu mt-3 me-2" to="/faq">
+            <Link className="nav-menu mt-3 me-4" to="/faq">
               Faq
             </Link>
-            <Link className="nav-menu mt-3 me-2" to="/blog">
+            <Link className="nav-menu mt-3 me-4" to="/blog">
               Blog
             </Link>
-            <Link className="nav-menu mt-3 me-2" to="/register">
+            <Link className="nav-menu mt-3 me-4" to="/register">
               Register
             </Link>
             <p>
               {user?.uid ? (
                 <>
-                  <span className="me-2 ">{user?.displayName}</span>
+                  <span className="me-4 ">{user?.displayName}</span>
 
-                  <Button className="me-2 mt-2" onClick={logout}>
+                  <Button className="me-4 mt-2" onClick={logout}>
                     Logout
                   </Button>
                 </>
               ) : (
-                <Link className="nav-menu mt-3 me-2" to="/login">
+                <Link id="login" className="nav-menu  me-4" to="/login">
                   Login
                 </Link>
               )}
             </p>
             {user?.photoURL ? (
               <Image
-                className="mt-3 me-2"
+                className="mt-3 me-4"
                 style={{ height: "30px" }}
                 roundedCircle
                 src={user.photoURL}
               ></Image>
             ) : (
-              <FaUserAlt className="mt-3 me-2"></FaUserAlt>
+              <FaUserAlt className="mt-3 me-4"></FaUserAlt>
             )}
 
             <DarkModeToggle

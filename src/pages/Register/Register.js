@@ -74,7 +74,9 @@ const Register = () => {
 
   return (
     <div>
-      <h1 className="text-primary text-center">Please Register!</h1>
+      <h1 className="text-primary text-center fw-bold mt-5">
+        Please Register!
+      </h1>
       <Form onSubmit={handleSubmit} className="mx-auto w-50 ">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
@@ -116,7 +118,7 @@ const Register = () => {
         <Button onClick={handlegitSignIn} variant="outline-dark">
           Signin With Github <FaGithub></FaGithub>{" "}
         </Button>
-        <p>
+        <p className="fw-semibold">
           Alreary have an account? <Link to="/login">Login</Link>
         </p>
       </Form>

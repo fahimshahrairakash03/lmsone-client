@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CourseSummary = ({ course }) => {
   const { _id, title, image_url, details } = course;
   return (
-    <div>
+    <div className="my-4">
       <Card className="text-center w-60 mx-auto mb-4">
         <Card.Header>Featured</Card.Header>
         <Card.Img
