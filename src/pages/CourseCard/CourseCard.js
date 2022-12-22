@@ -20,7 +20,7 @@ const CourseCard = ({ course }) => {
               <Card.Title>{course.title}</Card.Title>
               <Card.Text>{course.details}</Card.Text>
               <Link to={`/selected/${_id}`}>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">Details</Button>
               </Link>
             </Card.Body>
             <Card.Footer className="text-muted">Download</Card.Footer>

@@ -14,7 +14,7 @@ const CourseDetails = () => {
   console.log(course);
 
   return (
-    <div>
+    <div className="mt-5">
       <Card className="w-50 mx-auto text-center">
         <Card.Header>
           <div className="App">
